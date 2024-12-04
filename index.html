@@ -1,0 +1,881 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denzil's Training Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <section id="home" class="hero-section">
+    <div class="container text-center">
+      <h1 class="hero-title">Welcome to NextGen</h1>
+      <p class="hero-subtitle">Get personalized guidance from mentors in the industry</p>
+
+      <!-- Skills Showcase -->
+      <div class="skills-container">
+        <span class="skill-pill">Generative AI</span>
+        <span class="skill-pill">Web Development</span>
+        <span class="skill-pill">Data Science</span>
+        <span class="skill-pill">Cloud Computing</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">UI/UX Design</span>
+        <span class="skill-pill">Data Analyst</span>
+        <span class="skill-pill">DSA</span>
+        <span class="skill-pill">Programming languages</span>
+        <span class="skill-pill">Advanced Excel</span>
+        <span class="skill-pill">Spoken English</span>
+        
+      </div>
+
+      <!-- Mentor Profiles Distributed -->
+      <div class="mentor-distribution">
+        <div class="mentor-photo random-position" title="IBM Trainer">
+          <img src="/asset/m1.jpeg" alt="IBM Trainer">
+          <p class="mentor-profession">IBM Trainer</p>
+        </div>
+        <div class="mentor-photo random-position" title="Google Cloud Specialist">
+          <img src="/asset/m2.png" alt="Google Cloud Specialist">
+          <p class="mentor-profession">SDE at Adobe</p>
+        </div>
+        <div class="mentor-photo random-position" title="Ex-Amazon Engineer">
+          <img src="/asset/m3.png" alt="Ex-Amazon Engineer">
+          <p class="mentor-profession">Ex-Amazon Engineer</p>
+        </div>
+        <div class="mentor-photo random-position" title="IBM Trainer">
+          <img src="/asset/m4.png" alt="IBM Trainer">
+          <p class="mentor-profession">AWS Certified Expert</p>
+        </div>
+        <div class="mentor-photo random-position" title="Google Cloud Specialist">
+          <img src="/asset/m5.png" alt="Google Cloud Specialist">
+          <p class="mentor-profession">ML engineer</p>
+        </div>
+        <div class="mentor-photo random-position" title="Ex-Amazon Engineer">
+          <img src="/asset/m6.png" alt="Ex-Amazon Engineer">
+          <p class="mentor-profession">Data analyst</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="#experience" class="cta-btn">Experience The Magic</a>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="experience" class="my-5">
+    <div class="video-collage">
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="./asset/video1.mp4" muted loop></video>
+            <div class="video-title">Title 1</div>
+        </div>
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="asset/video2.mp4" muted loop></video>
+            <div class="video-title">Title 2</div>
+        </div>
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="asset/video3.mp4" muted loop></video>
+            <div class="video-title">Title 3</div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Task Logic -->
+  <script>
+  function startTask(platform, seconds) {
+      // Hide button and show progress
+      document.querySelector(`#${platform}-progress`).classList.remove('d-none');
+      
+      // Open social media in new tab
+      window.open(`https://www.${platform}.com/coachingpage`, '_blank');
+      
+      let progress = 0;
+      const interval = setInterval(() => {
+          progress += (100 / seconds);
+          document.querySelector(`#${platform}-progress .progress-bar`).style.width = `${progress}%`;
+          
+          if (progress >= 100) {
+              clearInterval(interval);
+              completedTask(platform);
+          }
+      }, 1000);
+  }
+
+  function completedTask(platform) {
+      // Show completion badge
+      document.querySelector(`#${platform}-badge`).classList.remove('d-none');
+      
+      // Generate random coupon
+      const coupon = generateCoupon();
+      
+      // Show coupon modal
+      alert(`Congratulations! Your ${platform} task is complete.\nYour coupon code is: ${coupon}`);
+  }
+
+  function generateCoupon() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let coupon = '';
+      for (let i = 0; i < 8; i++) {
+          coupon += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return coupon;
+  }
+  </script>
+
+  <!-- Features Section -->
+  <section id="features" class="my-4 py-4 mx-auto text-center" style="max-width: 80%;">
+    <h2 class="mb-3">Learn the Right Way</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5" style="min-height: 15vh;">
+      <div class="col">
+        <div class="feature h-100 text-center p-3">
+          <i class="fas fa-chalkboard-teacher text-primary fs-1 mb-3"></i>
+          <h5>Expert Instructors</h5>
+          <p class="mb-0">Learn from industry professionals with years of experience and hands-on knowledge.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-laptop-code text-primary fs-1 mb-3"></i>
+          <h5>Hands-on Projects</h5>
+          <p class="mb-0">Engage in real-world projects to apply what you’ve learned in a practical environment.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-comments text-primary fs-1 mb-3"></i>
+          <h5>Personalized Mentorship</h5>
+          <p class="mb-0">Receive one-on-one guidance and support to achieve your career goals.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-certificate text-primary fs-1 mb-3"></i>
+          <h5>Certification</h5>
+          <p class="mb-0">Earn a recognized certificate upon course completion to boost your resume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Community Section -->
+  <div class="container my-5 py-5" style="margin-bottom: 20px; max-width: 80%">
+    <div class="text-center mb-4 fs-4">
+      <h1>👋 Join Our Tech Community!</h1>
+      <p class="text-muted">Connect, Build & Grow Together</p>
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <form id="introForm" onsubmit="handleSubmit(event)">
+              <!-- Step 1: Basic Info -->
+              <div class="step" id="step1">
+                <h5>Let's start with your name</h5>
+                <input type="text" class="form-control mb-3" name="name" 
+                       placeholder="Your name" required
+                       onchange="showNext('step2')">
+              </div>
+  
+              <!-- Step 2: Current Role -->
+              <!-- <div class="step d-none" id="step2">
+                <h5>What are you currently doing?</h5>
+                <select class="form-select mb-3" name="role" 
+                        onchange="showNext('step3')" required>
+                  <option value="">Select your role</option>
+                  <option>Student</option>
+                  <option>Professional</option>
+                  <option>Entrepreneur</option>
+                  <option>Freelancer</option>
+                </select>
+              </div> -->
+  
+              <!-- Step 3: Skills -->
+              <div class="step d-none" id="step2">
+                <h5>What do you want to learn?(max 2)</h5>
+                <div class="skills-container mb-3" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Full Stack Development</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Mobile Development</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Cloud Computing</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Data Structures & Algorithms</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Java/Python Programming</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Machine Learning</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Generative AI</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">DevOps</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Blockchain</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Cybersecurity</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">UI/UX Design</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Data Analysis</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Excel</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Spoken English</button>
+                </div>
+              </div>
+              
+               <!-- Step 3: Referral -->
+              <div class="step" id="step3">
+                <h5>Referred by someone? Enter code for benefits.</h5>
+                <input type="text" class="form-control mb-3" name="name" 
+                       placeholder="Friend's referral code">
+              </div>
+
+             
+              <button type="submit" class="btn btn-primary w-100 mt-3 fs-5">Join Our WhatsApp Community</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Community Logic -->
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Gather form data
+      const name = document.querySelector('[name="name"]').value;
+      const role = document.querySelector('[name="role"]').value;
+      const selectedSkills = Array.from(document.querySelectorAll('.skill-btn.active')).map(skill => skill.innerText);
+      const selectedGoals = Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(goal => goal.value);
+
+      // Firebase setup (initialize your Firebase app before this function)
+      const userData = {
+        name: name,
+        role: role,
+        skills: selectedSkills,
+        goals: selectedGoals,
+        timestamp: new Date().toISOString()
+      };
+
+      // Save to Firebase
+      // const db = firebase.database(); 
+      // db.ref('users').push(userData)
+      //   .then(() => {
+      //     console.log('Data saved successfully to Firebase');
+      //   })
+      //   .catch(error => {
+      //     console.error('Error saving data to Firebase:', error);
+      //     alert('Could not save your data. Please try again.');
+      //   });
+    }
+
+    // Show the next step only if the current field is filled
+    function showNext(stepId) {
+        const currentStep = document.querySelector('.step:not(.d-none)');
+        if (!currentStep) return;
+
+        // Check if input in the current step is valid
+        const input = currentStep.querySelector('input, select');
+        if (input && !input.value.trim()) {
+            alert('Please fill out this field before proceeding.');
+            input.focus();
+            return;
+        }
+        const nextStep = document.getElementById(stepId);
+        if (nextStep) nextStep.classList.remove('d-none');
+    }
+
+    // Disable form submission on Enter, and navigate to the next field instead
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            const currentStep = document.querySelector('.step:not(.d-none)');
+            const nextStepId = currentStep && currentStep.nextElementSibling && currentStep.nextElementSibling.id;
+
+            if (nextStepId) {
+                showNext(nextStepId); // Show the next step
+            }
+        }
+    });
+
+  
+    // Toggle skills selection
+    function toggleSkill(btn) {
+      const selectedSkills = Array.from(document.querySelectorAll('.skill-btn.selected')).map(btn => btn.innerText);
+      if (btn.classList.contains('selected')) {
+        btn.classList.remove('selected');
+        console.log(selectedSkills)
+        selectedSkills = selectedSkills.filter(skill => skill != btn.textContent);
+      } else if (selectedSkills.length < 2) {
+        btn.classList.add('selected');
+        selectedSkills.push(btn.textContent);
+      }
+      
+      if (selectedSkills.length > 0) {
+        showNext('step4');
+      }
+    }
+    
+  </script>
+  
+  
+  <!-- Testimonials Section -->
+  <section class="mx-auto text-center" style="margin-bottom: 60px; width: 80%;">
+    <h2 class="text-center mb-4">What Our Students Say</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm card h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "Joining this course was the best decision ever! The projects gave me real-world experience, and I secured a great job in data analytics."
+            </p>
+            <p class="fw-bold">- Priya S.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "The way they taught React and Bootstrap made everything so easy to understand. I can now build websites with confidence!"
+            </p>
+            <p class="fw-bold">- Arjun K.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "The machine learning sessions were amazing! The practical examples and mentor support really helped me grasp tough concepts."
+            </p>
+            <p class="fw-bold">- Neha T.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+  
+  <!-- Discounts Section -->
+  <div class="row mx-auto justify-content-center my-5" style="width: 75%;">
+    <div class="col-md-10">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center py-3">
+          <h3 class="mb-0">Help us reach more students and get rewarded! 🎉</h3>
+        </div>
+        <div class="card-body bg-light">
+          <div class="row g-4">
+            <!-- Review on Superprof -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Review us on Superprof</h5>
+                  <a href="https://www.superprof.co.in/ir/33615137-04f85c" target="_blank" class="btn btn-outline-primary">Get 20% discount coupon</a>
+                </div>
+              </div>
+            </div>
+            <!-- Review on Google -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Review us on Google</h5>
+                  <a href="https://maps.app.goo.gl/4Ws6nZweLRu8VVgu7#" target="_blank" class="btn btn-outline-primary">Get 20% discount coupon</a>
+                </div>
+              </div>
+            </div>
+            <!-- Refer a Friend -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Refer a friend</h5>
+                  <a href="https://wa.me/9969030347?text=Can%20you%20explain%20referral%3F" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">Get 3 free sessions</a>                
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 text-center">
+            <p class="text-muted">
+              Send a screenshot of your completed task to the WhatsApp admin and claim your coupon!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- FAQ Section -->
+  <section id="faq" class="my-5 py-5">
+    <h2 class="text-center">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h4>What is the duration of program?</h4>
+            <p>Each program is personalized by your mentor to meet your career goals.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do I need prior experience?</h4>
+            <p>No prior experience is necessary for most programs, but we do offer advanced training for those with a background in the field.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What tools and resources are provided during the program?</h4>
+          <p>You will have access to an exclusive community, along with learning materials, industry tools and guidance at every stage.</p>
+        </div>    
+        <div class="faq-item">
+          <h4>Can I switch mentors during the program?</h4>
+          <p>Yes, if you feel the need, you can request a mentor change within the first month of the program.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ Logic -->
+  <script>
+    document.querySelectorAll('.faq-item h4').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Denzil's Training Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <section id="home" class="hero-section">
+    <div class="container text-center">
+      <h1 class="hero-title">Welcome to NextGen</h1>
+      <p class="hero-subtitle">Get personalized guidance from mentors in the industry</p>
+
+      <!-- Skills Showcase -->
+      <div class="skills-container">
+        <span class="skill-pill">Generative AI</span>
+        <span class="skill-pill">Web Development</span>
+        <span class="skill-pill">Data Science</span>
+        <span class="skill-pill">Cloud Computing</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">UI/UX Design</span>
+        <span class="skill-pill">Data Analyst</span>
+        <span class="skill-pill">DSA</span>
+        <span class="skill-pill">Programming languages</span>
+        <span class="skill-pill">Advanced Excel</span>
+        <span class="skill-pill">Spoken English</span>
+        
+      </div>
+
+      <!-- Mentor Profiles Distributed -->
+      <div class="mentor-distribution">
+        <div class="mentor-photo random-position" title="IBM Trainer">
+          <img src="/asset/m1.jpeg" alt="IBM Trainer">
+          <p class="mentor-profession">IBM Trainer</p>
+        </div>
+        <div class="mentor-photo random-position" title="Google Cloud Specialist">
+          <img src="/asset/m2.png" alt="Google Cloud Specialist">
+          <p class="mentor-profession">SDE at Adobe</p>
+        </div>
+        <div class="mentor-photo random-position" title="Ex-Amazon Engineer">
+          <img src="/asset/m3.png" alt="Ex-Amazon Engineer">
+          <p class="mentor-profession">Ex-Amazon Engineer</p>
+        </div>
+        <div class="mentor-photo random-position" title="IBM Trainer">
+          <img src="/asset/m4.png" alt="IBM Trainer">
+          <p class="mentor-profession">AWS Certified Expert</p>
+        </div>
+        <div class="mentor-photo random-position" title="Google Cloud Specialist">
+          <img src="/asset/m5.png" alt="Google Cloud Specialist">
+          <p class="mentor-profession">ML engineer</p>
+        </div>
+        <div class="mentor-photo random-position" title="Ex-Amazon Engineer">
+          <img src="/asset/m6.png" alt="Ex-Amazon Engineer">
+          <p class="mentor-profession">Data analyst</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a href="#experience" class="cta-btn">Experience The Magic</a>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="experience" class="my-5">
+    <div class="video-collage">
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="./asset/video1.mp4" muted loop></video>
+            <div class="video-title">Title 1</div>
+        </div>
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="asset/video2.mp4" muted loop></video>
+            <div class="video-title">Title 2</div>
+        </div>
+        <div class="video-card" onclick="toggleExpand(this)">
+            <video src="asset/video3.mp4" muted loop></video>
+            <div class="video-title">Title 3</div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Task Logic -->
+  <script>
+  function startTask(platform, seconds) {
+      // Hide button and show progress
+      document.querySelector(`#${platform}-progress`).classList.remove('d-none');
+      
+      // Open social media in new tab
+      window.open(`https://www.${platform}.com/coachingpage`, '_blank');
+      
+      let progress = 0;
+      const interval = setInterval(() => {
+          progress += (100 / seconds);
+          document.querySelector(`#${platform}-progress .progress-bar`).style.width = `${progress}%`;
+          
+          if (progress >= 100) {
+              clearInterval(interval);
+              completedTask(platform);
+          }
+      }, 1000);
+  }
+
+  function completedTask(platform) {
+      // Show completion badge
+      document.querySelector(`#${platform}-badge`).classList.remove('d-none');
+      
+      // Generate random coupon
+      const coupon = generateCoupon();
+      
+      // Show coupon modal
+      alert(`Congratulations! Your ${platform} task is complete.\nYour coupon code is: ${coupon}`);
+  }
+
+  function generateCoupon() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let coupon = '';
+      for (let i = 0; i < 8; i++) {
+          coupon += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return coupon;
+  }
+  </script>
+
+  <!-- Features Section -->
+  <section id="features" class="my-4 py-4 mx-auto text-center" style="max-width: 80%;">
+    <h2 class="mb-3">Learn the Right Way</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5" style="min-height: 15vh;">
+      <div class="col">
+        <div class="feature h-100 text-center p-3">
+          <i class="fas fa-chalkboard-teacher text-primary fs-1 mb-3"></i>
+          <h5>Expert Instructors</h5>
+          <p class="mb-0">Learn from industry professionals with years of experience and hands-on knowledge.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-laptop-code text-primary fs-1 mb-3"></i>
+          <h5>Hands-on Projects</h5>
+          <p class="mb-0">Engage in real-world projects to apply what you’ve learned in a practical environment.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-comments text-primary fs-1 mb-3"></i>
+          <h5>Personalized Mentorship</h5>
+          <p class="mb-0">Receive one-on-one guidance and support to achieve your career goals.</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature card h-100 text-center p-3">
+          <i class="fas fa-certificate text-primary fs-1 mb-3"></i>
+          <h5>Certification</h5>
+          <p class="mb-0">Earn a recognized certificate upon course completion to boost your resume.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Community Section -->
+  <div class="container my-5 py-5" style="margin-bottom: 20px; max-width: 80%">
+    <div class="text-center mb-4 fs-4">
+      <h1>👋 Join Our Tech Community!</h1>
+      <p class="text-muted">Connect, Build & Grow Together</p>
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <form id="introForm" onsubmit="handleSubmit(event)">
+              <!-- Step 1: Basic Info -->
+              <div class="step" id="step1">
+                <h5>Let's start with your name</h5>
+                <input type="text" class="form-control mb-3" name="name" 
+                       placeholder="Your name" required
+                       onchange="showNext('step2')">
+              </div>
+  
+              <!-- Step 2: Current Role -->
+              <!-- <div class="step d-none" id="step2">
+                <h5>What are you currently doing?</h5>
+                <select class="form-select mb-3" name="role" 
+                        onchange="showNext('step3')" required>
+                  <option value="">Select your role</option>
+                  <option>Student</option>
+                  <option>Professional</option>
+                  <option>Entrepreneur</option>
+                  <option>Freelancer</option>
+                </select>
+              </div> -->
+  
+              <!-- Step 3: Skills -->
+              <div class="step d-none" id="step2">
+                <h5>What do you want to learn?(max 2)</h5>
+                <div class="skills-container mb-3" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Full Stack Development</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Mobile Development</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Cloud Computing</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Data Structures & Algorithms</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Java/Python Programming</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Machine Learning</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Generative AI</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">DevOps</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Blockchain</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Cybersecurity</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">UI/UX Design</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Data Analysis</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Excel</button>
+                  <button type="button" class="skill-btn" onclick="toggleSkill(this)">Spoken English</button>
+                </div>
+              </div>
+              
+               <!-- Step 3: Referral -->
+              <div class="step" id="step3">
+                <h5>Referred by someone? Enter code for benefits.</h5>
+                <input type="text" class="form-control mb-3" name="name" 
+                       placeholder="Friend's referral code">
+              </div>
+
+             
+              <button type="submit" class="btn btn-primary w-100 mt-3 fs-5">Join Our WhatsApp Community</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Community Logic -->
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Gather form data
+      const name = document.querySelector('[name="name"]').value;
+      const role = document.querySelector('[name="role"]').value;
+      const selectedSkills = Array.from(document.querySelectorAll('.skill-btn.active')).map(skill => skill.innerText);
+      const selectedGoals = Array.from(document.querySelectorAll('input[name="goals"]:checked')).map(goal => goal.value);
+
+      // Firebase setup (initialize your Firebase app before this function)
+      const userData = {
+        name: name,
+        role: role,
+        skills: selectedSkills,
+        goals: selectedGoals,
+        timestamp: new Date().toISOString()
+      };
+
+      // Save to Firebase
+      // const db = firebase.database(); 
+      // db.ref('users').push(userData)
+      //   .then(() => {
+      //     console.log('Data saved successfully to Firebase');
+      //   })
+      //   .catch(error => {
+      //     console.error('Error saving data to Firebase:', error);
+      //     alert('Could not save your data. Please try again.');
+      //   });
+    }
+
+    // Show the next step only if the current field is filled
+    function showNext(stepId) {
+        const currentStep = document.querySelector('.step:not(.d-none)');
+        if (!currentStep) return;
+
+        // Check if input in the current step is valid
+        const input = currentStep.querySelector('input, select');
+        if (input && !input.value.trim()) {
+            alert('Please fill out this field before proceeding.');
+            input.focus();
+            return;
+        }
+        const nextStep = document.getElementById(stepId);
+        if (nextStep) nextStep.classList.remove('d-none');
+    }
+
+    // Disable form submission on Enter, and navigate to the next field instead
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            const currentStep = document.querySelector('.step:not(.d-none)');
+            const nextStepId = currentStep && currentStep.nextElementSibling && currentStep.nextElementSibling.id;
+
+            if (nextStepId) {
+                showNext(nextStepId); // Show the next step
+            }
+        }
+    });
+
+  
+    // Toggle skills selection
+    function toggleSkill(btn) {
+      const selectedSkills = Array.from(document.querySelectorAll('.skill-btn.selected')).map(btn => btn.innerText);
+      if (btn.classList.contains('selected')) {
+        btn.classList.remove('selected');
+        console.log(selectedSkills)
+        selectedSkills = selectedSkills.filter(skill => skill != btn.textContent);
+      } else if (selectedSkills.length < 2) {
+        btn.classList.add('selected');
+        selectedSkills.push(btn.textContent);
+      }
+      
+      if (selectedSkills.length > 0) {
+        showNext('step4');
+      }
+    }
+    
+  </script>
+  
+  
+  <!-- Testimonials Section -->
+  <section class="mx-auto text-center" style="margin-bottom: 60px; width: 80%;">
+    <h2 class="text-center mb-4">What Our Students Say</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm card h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "Joining this course was the best decision ever! The projects gave me real-world experience, and I secured a great job in data analytics."
+            </p>
+            <p class="fw-bold">- Priya S.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "The way they taught React and Bootstrap made everything so easy to understand. I can now build websites with confidence!"
+            </p>
+            <p class="fw-bold">- Arjun K.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <p class="card-text">
+              "The machine learning sessions were amazing! The practical examples and mentor support really helped me grasp tough concepts."
+            </p>
+            <p class="fw-bold">- Neha T.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+  
+  <!-- Discounts Section -->
+  <div class="row mx-auto justify-content-center my-5" style="width: 75%;">
+    <div class="col-md-10">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center py-3">
+          <h3 class="mb-0">Help us reach more students and get rewarded! 🎉</h3>
+        </div>
+        <div class="card-body bg-light">
+          <div class="row g-4">
+            <!-- Review on Superprof -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Review us on Superprof</h5>
+                  <a href="https://www.superprof.co.in/ir/33615137-04f85c" target="_blank" class="btn btn-outline-primary">Get 20% discount coupon</a>
+                </div>
+              </div>
+            </div>
+            <!-- Review on Google -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Review us on Google</h5>
+                  <a href="https://maps.app.goo.gl/4Ws6nZweLRu8VVgu7#" target="_blank" class="btn btn-outline-primary">Get 20% discount coupon</a>
+                </div>
+              </div>
+            </div>
+            <!-- Refer a Friend -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Refer a friend</h5>
+                  <a href="https://wa.me/9969030347?text=Can%20you%20explain%20referral%3F" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">Get 3 free sessions</a>                
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 text-center">
+            <p class="text-muted">
+              Send a screenshot of your completed task to the WhatsApp admin and claim your coupon!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  
+  <!-- FAQ Section -->
+  <section id="faq" class="my-5 py-5">
+    <h2 class="text-center">Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <h4>What is the duration of program?</h4>
+            <p>Each program is personalized by your mentor to meet your career goals.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do I need prior experience?</h4>
+            <p>No prior experience is necessary for most programs, but we do offer advanced training for those with a background in the field.</p>
+        </div>
+        <div class="faq-item">
+          <h4>What tools and resources are provided during the program?</h4>
+          <p>You will have access to an exclusive community, along with learning materials, industry tools and guidance at every stage.</p>
+        </div>    
+        <div class="faq-item">
+          <h4>Can I switch mentors during the program?</h4>
+          <p>Yes, if you feel the need, you can request a mentor change within the first month of the program.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- FAQ Logic -->
+  <script>
+    document.querySelectorAll('.faq-item h4').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('active');
+        });
+    });
+  </script>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+>>>>>>> 31ad2a0afc2910ca373cb723c04d287b088416d3
