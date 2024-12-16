@@ -16,7 +16,7 @@
 
 /* General Styles */
 .hero-section {
-  height: 100vh;
+  min-height: 70vh;
   background: linear-gradient(-45deg, #4a90e2, #9013fe);
   color: #fff;
   display: flex;
@@ -28,12 +28,10 @@
   overflow: hidden;
 }
 
-.skills-container {
-  padding: 0 15%;
-  margin-top: 15px;
+.hero-section .container{
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -55,9 +53,10 @@
   pointer-events: none;
 }
 
+/* Mentor photo */
 .mentor-photo {
-  width: 140px;
-  height: 140px;
+  width: 14vh;
+  height: 14vh;
   border-radius: 50%;
   position: absolute;
   text-align: center;
@@ -67,6 +66,12 @@
   opacity: 0.8;
   transform: scale(0);
   animation: mentorPop 3s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .mentor-photo {
+    display: none;
+  }
 }
 
 .mentor-photo img {
@@ -287,8 +292,7 @@
 .feature{
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* Community form*/
+/* Community form */
 .skill-btn {
   padding: 8px 16px;
   border: 2px solid #e0e0e0;
@@ -296,6 +300,7 @@
   background: white;
   cursor: pointer;
   transition: all 0.2s;
+  white-space: nowrap; /* Prevent buttons from breaking into multiple lines */
 }
 
 .skill-btn.selected {
@@ -305,6 +310,9 @@
 }
 
 .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: all 0.3s;
   opacity: 1;
   transform: translateY(0);
@@ -317,14 +325,67 @@
 
 .card {
   border: none;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive design */
+#intro-form{
+  justify-content: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+
+#header .skills-container{
+  width: 70%;
+}
+
+.skills-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.skills-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.skills-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    width: 100%;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    max-height: calc(3 * 48px + 20px); /* Keep at most 3 rows visible */
+    overflow-x: auto; /* Horizontal scrolling for small devices */
+    overflow-y: hidden; 
+    scroll-snap-type: x mandatory; /* Smooth horizontal scrolling */
+  }
+
+  #header .skills-container {
+    display: none;
+  }
+
+  #header {
+    min-height: 35vh;
+  }
+
+  .cta-btn {
+    margin-top: 10px;
+  }
+}
 /* FAQ Section */
 .faq-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px; 
 }
 
 .faq-item {
